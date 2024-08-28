@@ -18,19 +18,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Debug Git metadata
-        run: |
-          echo "Author Name: $(git log -1 --pretty=format:'%an')"
-          echo "Author Email: $(git log -1 --pretty=format:'%ae')"
-          echo "Commit Date: $(git log -1 --pretty=format:'%ad')"
-
       - name: Cat ModelFileFinder.swift
         run: cat /Users/runner/work/ModelFileFinder/ModelFileFinder/Sources/ModelFileFinder/ModelFileFinder.swift
 
       - name: Run SwiftFormat with debugging
         run: |
-          swiftformat . --verbose
-
-      - name: Reformat Files
-        run: |
-          swiftformat .
+          swiftformat . --strict --verbose

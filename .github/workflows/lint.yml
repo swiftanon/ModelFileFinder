@@ -23,7 +23,6 @@ jobs:
 
       - name: Fail if files need formatting
         run: |
-          if swiftformat --lint . | grep -q "file needs formatting"; then
-            echo "Files need formatting. Please run 'swiftformat .' locally."
-            exit 1
+          set -e
+          swiftformat --lint . | grep -q "file needs formatting" && (echo "Files need formatting. Please run 'swiftformat .' locally."; exit 1)
           fi

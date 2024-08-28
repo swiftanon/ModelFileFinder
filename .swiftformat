@@ -1,0 +1,4 @@
+--indent 4
+--indentcase true
+--ifdef outdent
+--header "{file}\nCreated by {author.name} on {created}."

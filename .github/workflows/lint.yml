@@ -1,0 +1,30 @@
+# Lint.yml
+name: Lint
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Swift
+        uses: SwiftyLab/setup-swift@v1
+        with:
+          swift-version: '5.9.2'
+
+      - name: Reformat Files
+        run: |
+          swiftformat .
+
+      - name: Run Lint Check
+        run: |
+          swiftformat --lint . --reporter json

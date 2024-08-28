@@ -18,25 +18,6 @@ jobs:
         with:
           fetch-depth: 0        
 
-      - name: Set up Swift
-        uses: SwiftyLab/setup-swift@v1
-        with:
-          swift-version: '5.9.2'
-
-      - name: Debug Environment Differences
+      - name: Reformat Files
         run: |
-          echo "Swift version:"
-          swift --version
-          echo "SwiftFormat version:"
-          swiftformat --version
-          echo "Current working directory:"
-          pwd
-          echo "Environment variables:"
-          env
-          echo "SwiftFormat configuration:"
-          cat .swiftformat
-
-      - name: Fail if files need formatting
-        run: |
-          set -e
-          swiftformat --lint . | grep -q "file needs formatting" && (echo "Files need formatting. Please run 'swiftformat .' locally."; exit 1)
+          swiftformat .

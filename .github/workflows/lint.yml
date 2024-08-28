@@ -15,17 +15,26 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        
 
       - name: Set up Swift
         uses: SwiftyLab/setup-swift@v1
         with:
           swift-version: '5.9.2'
 
-      - name: Output Swift version and configuration
+      - name: Debug Environment Differences
         run: |
+          echo "Swift version:"
           swift --version
+          echo "SwiftFormat version:"
+          swiftformat --version
+          echo "Current working directory:"
+          pwd
+          echo "Environment variables:"
+          env
+          echo "SwiftFormat configuration:"
           cat .swiftformat
-          swiftformat --version          
 
       - name: Fail if files need formatting
         run: |

@@ -18,17 +18,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Clean up potential caches
+      - name: Debug Git metadata
         run: |
-          rm -rf .build
-          rm -rf .swiftformat.cache
-
-      - name: Print working directory and file details
-        run: |
-          pwd
-          ls -lR
-          file *
-          find . -type f -exec file {} \;
+          echo "Author Name: $(git log -1 --pretty=format:'%an')"
+          echo "Author Email: $(git log -1 --pretty=format:'%ae')"
+          echo "Commit Date: $(git log -1 --pretty=format:'%ad')"
 
       - name: Run SwiftFormat with debugging
         run: |

@@ -25,4 +25,3 @@ jobs:
         run: |
           set -e
           swiftformat --lint . | grep -q "file needs formatting" && (echo "Files need formatting. Please run 'swiftformat .' locally."; exit 1)
-          fi

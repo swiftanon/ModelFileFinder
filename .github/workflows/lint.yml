@@ -24,7 +24,8 @@ jobs:
       - name: Output Swift version and configuration
         run: |
           swift --version
-          cat .swiftformat          
+          cat .swiftformat
+          swiftformat --version          
 
       - name: Fail if files need formatting
         run: |

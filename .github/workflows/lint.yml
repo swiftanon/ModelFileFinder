@@ -30,6 +30,10 @@ jobs:
           file *
           find . -type f -exec file {} \;
 
+      - name: Run SwiftFormat with debugging
+        run: |
+          swiftformat --lint . --verbose --debug
+
       - name: Reformat Files
         run: |
           swiftformat .

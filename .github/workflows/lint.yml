@@ -21,10 +21,9 @@ jobs:
         with:
           swift-version: '5.9.2'
 
-      - name: Reformat Files
+      - name: Fail if files need formatting
         run: |
-          swiftformat .
-
-      - name: Run Lint Check
-        run: |
-          swiftformat --lint . --reporter json
+          if swiftformat --lint . | grep -q "file needs formatting"; then
+            echo "Files need formatting. Please run 'swiftformat .' locally."
+            exit 1
+          fi

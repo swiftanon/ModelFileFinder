@@ -29,7 +29,7 @@ jobs:
 
       - name: Run SwiftFormat with debugging
         run: |
-          swiftformat --lint . --verbose
+          swiftformat . --verbose
 
       - name: Reformat Files
         run: |

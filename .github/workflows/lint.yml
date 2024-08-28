@@ -21,6 +21,11 @@ jobs:
         with:
           swift-version: '5.9.2'
 
+      - name: Output Swift version and configuration
+        run: |
+          swift --version
+          cat .swiftformat          
+
       - name: Fail if files need formatting
         run: |
           set -e

@@ -16,7 +16,19 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0        
+          fetch-depth: 0
+
+      - name: Clean up potential caches
+        run: |
+          rm -rf .build
+          rm -rf .swiftformat.cache
+
+      - name: Print working directory and file details
+        run: |
+          pwd
+          ls -lR
+          file *
+          find . -type f -exec file {} \;
 
       - name: Reformat Files
         run: |

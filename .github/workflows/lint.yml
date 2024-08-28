@@ -24,9 +24,8 @@ jobs:
           echo "Author Email: $(git log -1 --pretty=format:'%ae')"
           echo "Commit Date: $(git log -1 --pretty=format:'%ad')"
 
-      - name: Cat file 
-        run: |
-          cat /Users/runner/work/ModelFileFinder/ModelFileFinder/Tests/ModelFileFinderests/ModelFileFinderTests.swif
+      - name: Cat ModelFileFinder.swift
+        run: cat /Users/runner/work/ModelFileFinder/ModelFileFinder/Sources/ModelFileFinder/ModelFileFinder.swift
 
       - name: Run SwiftFormat with debugging
         run: |

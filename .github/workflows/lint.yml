@@ -21,6 +21,6 @@ jobs:
       - name: Cat ModelFileFinder.swift
         run: cat /Users/runner/work/ModelFileFinder/ModelFileFinder/Sources/ModelFileFinder/ModelFileFinder.swift
 
-      - name: Run SwiftFormat with debugging
+      - name: Run SwiftFormat with project-specific cache
         run: |
-          swiftformat . --strict --verbose
+          swiftformat . --cache .swiftformat.cache
